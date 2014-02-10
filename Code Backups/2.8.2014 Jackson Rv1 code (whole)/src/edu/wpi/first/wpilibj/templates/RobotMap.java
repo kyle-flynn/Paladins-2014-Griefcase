@@ -50,7 +50,17 @@ public class RobotMap {
     
     //xbox controller button map
     public static final int BUTTON_A          = 1;
+    public static final int BUTTON_B          = 2;
+    public static final int BUTTON_X          = 3;
+    public static final int BUTTON_Y          = 4;
+    public static final int BUTTON_LEFT_BUMP  = 5;
+    public static final int BUTTON_RIGHT_BUMP = 6;
+    public static final int BUTTON_BACK       = 7;
+    public static final int BUTTON_START      = 8;
     public static final int BUTTON_RIGHT_TRIG = -3;
+    public static final int BUTTON_LEFT_TRIG  = 3;
+    
+    
     
     
     //Component Specifications
