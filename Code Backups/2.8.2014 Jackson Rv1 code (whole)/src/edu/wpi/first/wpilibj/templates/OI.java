@@ -50,7 +50,7 @@ public class OI {
     public Joystick stickOne = new Joystick(RobotMap.STICK_ONE);    
     
     public Button armIn = new JoystickButton(stickOne, RobotMap.BUTTON_A);
-    public Button armOut = new JoystickButton(stickOne, 2);
+    public Button armOut = new JoystickButton(stickOne, RobotMap.BUTTON_B);
     //public Button test = new JoystickButton(stickOne, RobotMap.BUTTON_A);
     public Button shiftBtn = new JoystickButton(stickOne, RobotMap.BUTTON_RIGHT_TRIG);  
     
@@ -61,4 +61,3 @@ public class OI {
         armOut.whenPressed(new ArmReleaseCommand());        
     }    
 }
-

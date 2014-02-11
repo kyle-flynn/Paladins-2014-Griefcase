@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.subsystems.ArmsSubsystem;
 import edu.wpi.first.wpilibj.templates.subsystems.ChassisSubsystem;
 import edu.wpi.first.wpilibj.templates.subsystems.ShooterSubsystem;
+import edu.wpi.first.wpilibj.templates.subsystems.CompressorSubsystem;
+import edu.wpi.first.wpilibj.templates.subsystems.LightSubsystem;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -17,9 +19,11 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     // Create a single static instance of all of your subsystems
-    public static ChassisSubsystem chassis = new ChassisSubsystem();
-    public static ShooterSubsystem shooter = new ShooterSubsystem();
-    public static ArmsSubsystem    arms    = new ArmsSubsystem();
+    public static ChassisSubsystem chassis       = new ChassisSubsystem();
+    public static ShooterSubsystem shooter       = new ShooterSubsystem();
+    public static ArmsSubsystem    arms          = new ArmsSubsystem();
+    public static LightSubsystem   light         = new LightSubsystem();
+    public static CompressorSubsystem compressor = new CompressorSubsystem();    
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

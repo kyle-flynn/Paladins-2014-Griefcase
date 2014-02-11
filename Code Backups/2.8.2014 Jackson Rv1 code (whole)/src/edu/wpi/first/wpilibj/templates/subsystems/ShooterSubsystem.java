@@ -18,6 +18,9 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
 public class ShooterSubsystem extends Subsystem {
     private Talon kickerTalon;
     private Jaguar kickerJaguar;
+    
+    private DoubleSolenoid tiltPiston;
+    
     private DoubleSolenoid kickerLatch;
     private DigitalInput kickerLimitSwitch;
     private DigitalInput kickerMotorReturnSwitch;
@@ -33,6 +36,8 @@ public class ShooterSubsystem extends Subsystem {
     public ShooterSubsystem() {
         kickerLatch = new DoubleSolenoid(RobotMap.KICKER_LATCH_RELEASE, RobotMap.KICKER_LATCH_RELOAD);
         kickerLatch.set(DoubleSolenoid.Value.kReverse);
+        
+        tiltPiston = new DoubleSolenoid(RobotMap.TABLE_TILT_UP, RobotMap.TABLE_TILT_DOWN);
         
         if (RobotMap.IS_REAL_BOT == true) {
             kickerTalon = new Talon(RobotMap.KICKER_MOTOR);
@@ -56,7 +61,7 @@ public class ShooterSubsystem extends Subsystem {
      * @param direction -1 to draw the arm back, +1 to rotate motor forward away from arm.
      * 
      */
-    public void reload(int direction) { //TODO: set this as a separate command for the drivers' station
+    public void reload(int direction) {
         final int REVERSE = -1;
         
         if (direction == DRAW_KICKER_BACK) {
@@ -89,6 +94,14 @@ public class ShooterSubsystem extends Subsystem {
         else if (RobotMap.IS_REAL_BOT == false) {
             kickerJaguar.set(0.0);
         }
+    }
+    
+    public void tiltTableUp() {
+        tiltPiston.set(DoubleSolenoid.Value.kForward);
+    }
+    
+    public void tiltTableDown() {
+        tiltPiston.set(DoubleSolenoid.Value.kReverse);
     }
     
     public boolean isKickerLimitSwitchTriggered() {

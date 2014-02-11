@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
  * @author Taylor, Drew, Jackson
  */
 public class ArmsSubsystem extends Subsystem {
+    private static final int REVERSE     = -1;
     private final double ARM_MOTOR_SPEED = 0.5;
     private Talon armTalon;
     private Jaguar armJaguar;
@@ -47,12 +48,12 @@ public class ArmsSubsystem extends Subsystem {
     /*
      * Swings the arms outward.
      */
-    public void letGo() { //TODO: Rename this class to make more sense.
+    public void releaseBall() {
         if (RobotMap.IS_REAL_BOT == true) {
-            armTalon.set(-1 * ARM_MOTOR_SPEED);            
+            armTalon.set(REVERSE * ARM_MOTOR_SPEED);            
         }
         else if (RobotMap.IS_REAL_BOT == false) {
-            armJaguar.set(-1 * ARM_MOTOR_SPEED);
+            armJaguar.set(REVERSE * ARM_MOTOR_SPEED);
         }
     }
     

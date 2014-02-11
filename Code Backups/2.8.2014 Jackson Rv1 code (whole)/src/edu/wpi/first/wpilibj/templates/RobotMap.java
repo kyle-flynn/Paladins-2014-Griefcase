@@ -41,7 +41,7 @@ public class RobotMap {
     public static final int TRANSMISSION_SOLENOID_LOW  = 1; //Pistons are extended
     public static final int TRANSMISSION_SOLENOID_HIGH = 2; //Pistons are retracted
     public static final int TABLE_TILT_UP              = 3; //Piston is extended
-    public static final int TABLE_TILD_DOWN            = 4; //Piston is retracted
+    public static final int TABLE_TILT_DOWN            = 4; //Piston is retracted
     public static final int KICKER_LATCH_RELEASE       = 5; //Piston is extended, this shoots the ball
     public static final int KICKER_LATCH_RELOAD        = 6; //Piston is retracted, returning the latch to its normal state
 
