@@ -34,10 +34,10 @@ public class ShooterSubsystem extends Subsystem {
     }
     
     public ShooterSubsystem() {
-        kickerLatch = new DoubleSolenoid(RobotMap.SOLENOID_MODULE_NUMBER, RobotMap.KICKER_LATCH_RELEASE, RobotMap.KICKER_LATCH_RELOAD);
+        kickerLatch = new DoubleSolenoid(RobotMap.KICKER_LATCH_RELEASE, RobotMap.KICKER_LATCH_RELOAD);
         kickerLatch.set(DoubleSolenoid.Value.kReverse);
         
-        tiltPiston = new DoubleSolenoid(RobotMap.SOLENOID_MODULE_NUMBER, RobotMap.TABLE_TILT_UP, RobotMap.TABLE_TILT_DOWN);
+        tiltPiston = new DoubleSolenoid(RobotMap.TABLE_TILT_UP, RobotMap.TABLE_TILT_DOWN);
         
         if (RobotMap.IS_REAL_BOT == true) {
             kickerTalon = new Talon(RobotMap.KICKER_MOTOR);

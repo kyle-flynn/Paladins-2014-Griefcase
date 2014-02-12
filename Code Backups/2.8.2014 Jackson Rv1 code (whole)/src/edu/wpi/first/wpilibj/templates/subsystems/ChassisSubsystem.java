@@ -27,7 +27,7 @@ public class ChassisSubsystem extends Subsystem {
      * Sets the initial transmission state to low gear.
      */
     public ChassisSubsystem() {
-        transmission  = new DoubleSolenoid(RobotMap.SOLENOID_MODULE_NUMBER, RobotMap.TRANSMISSION_SOLENOID_LOW, RobotMap.TRANSMISSION_SOLENOID_HIGH);
+        transmission  = new DoubleSolenoid(RobotMap.TRANSMISSION_SOLENOID_LOW, RobotMap.TRANSMISSION_SOLENOID_HIGH);
         transmission.set(Value.kForward);
     }
     

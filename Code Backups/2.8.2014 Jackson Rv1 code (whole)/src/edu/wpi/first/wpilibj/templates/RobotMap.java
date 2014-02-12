@@ -36,9 +36,7 @@ public class RobotMap {
     public static final int COMPRESSOR   = 1;
     public static final int CAMERA_LIGHT = 4;
     
-    
     //Solenoid Breakout
-    public static final int SOLENOID_MODULE_NUMBER     = 3;
     public static final int TRANSMISSION_SOLENOID_LOW  = 1; //Pistons are extended
     public static final int TRANSMISSION_SOLENOID_HIGH = 2; //Pistons are retracted
     public static final int TABLE_TILT_UP              = 3; //Piston is extended
