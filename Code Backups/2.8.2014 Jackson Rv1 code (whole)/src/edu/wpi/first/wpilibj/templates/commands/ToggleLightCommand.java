@@ -17,9 +17,11 @@ public class ToggleLightCommand extends CommandBase {
     protected void initialize() {
         if (light.isLightOn() == true) {
             light.turnLightOff();
+            System.out.println("Light: OFF"); //<<<<<<<<< Debugger message
         }
         else if (light.isLightOn() == false) {
             light.turnLightOn();
+            System.out.println("Light: ON"); //<<<<<<<<< Debugger message
         }
     }
     

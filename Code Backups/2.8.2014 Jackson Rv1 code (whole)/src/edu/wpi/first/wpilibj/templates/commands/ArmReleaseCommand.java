@@ -10,6 +10,7 @@ public class ArmReleaseCommand extends CommandBase {
     
     public ArmReleaseCommand() {
         requires(arms);
+        System.out.println("Arms - OUT: Start"); //<<<<<<<<< Debugger message
     }
 
     // Called just before this Command runs the first time
@@ -32,10 +33,13 @@ public class ArmReleaseCommand extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
         arms.stop();
+        System.out.println("Arms - OUT: Stop"); //<<<<<<<<< Debugger message
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
+    /*
+     * Establishes that ArmPickUpCommand has precidence over ArmReleaseCommand
+     */
     protected void interrupted() {
+        end();
     }
 }

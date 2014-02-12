@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 
 /**
- * This subsystem operates the arms on the robot to pick up balls.
+ * This subsystem operates the arms on the robot to pick up and let go of game balls.
  * 
  * @author Taylor, Drew, Jackson
  */
@@ -34,7 +34,7 @@ public class ArmsSubsystem extends Subsystem {
     }
     
     /*
-     * Swings the arms inward.
+     * Swings the arms inward toward the robot.
      */
     public void pickUp() {
         if (RobotMap.IS_REAL_BOT == true) {
@@ -46,7 +46,7 @@ public class ArmsSubsystem extends Subsystem {
     }
     
     /*
-     * Swings the arms outward.
+     * Swings the arms outward away from the robot.
      */
     public void releaseBall() {
         if (RobotMap.IS_REAL_BOT == true) {
@@ -57,6 +57,9 @@ public class ArmsSubsystem extends Subsystem {
         }
     }
     
+    /*
+     * Stops applying voltage to the arm motors.
+     */
     public void stop() {
         if (RobotMap.IS_REAL_BOT == true) {
             armTalon.set(0.0);

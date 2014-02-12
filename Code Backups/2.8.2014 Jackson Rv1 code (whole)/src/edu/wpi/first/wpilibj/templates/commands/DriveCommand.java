@@ -2,13 +2,11 @@ package edu.wpi.first.wpilibj.templates.commands;
 
 /**
  *
- * @author bradmiller
+ * @author Kyle
  */
 public class DriveCommand extends CommandBase {
 
     public DriveCommand() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(chassis);
     }
 

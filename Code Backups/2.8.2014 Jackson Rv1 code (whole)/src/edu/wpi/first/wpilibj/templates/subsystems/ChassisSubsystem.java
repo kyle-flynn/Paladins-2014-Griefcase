@@ -13,16 +13,11 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.commands.DriveCommand;
 
 /**
- *
+ *@author Kyle, Jackson, Taylor
  */
 public class ChassisSubsystem extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-
     RobotDrive chassis = new RobotDrive(RobotMap.LEFT_MOTORS, RobotMap.RIGHT_MOTORS);
     
-    // low   = extend piston
-    // high  = retract piston
     private DoubleSolenoid transmission;
     
     private Encoder leftEncoder = new Encoder(RobotMap.CHASSIS_ENCODER_L_A, RobotMap.CHASSIS_ENCODER_L_B);
@@ -32,7 +27,8 @@ public class ChassisSubsystem extends Subsystem {
      * Sets the initial transmission state to low gear.
      */
     public ChassisSubsystem() {
-        transmission  = new DoubleSolenoid(RobotMap.TRANSMISSION_SOLENOID_LOW, RobotMap.TRANSMISSION_SOLENOID_HIGH); 
+        transmission  = new DoubleSolenoid(RobotMap.SOLENOID_MODULE_NUMBER, RobotMap.TRANSMISSION_SOLENOID_LOW, RobotMap.TRANSMISSION_SOLENOID_HIGH);
+        transmission.set(Value.kForward);
     }
     
     public void initDefaultCommand() {        
@@ -41,9 +37,6 @@ public class ChassisSubsystem extends Subsystem {
     
     public void drive(Joystick stick) {
         chassis.tankDrive(stick.getY(GenericHID.Hand.kLeft), stick.getY(GenericHID.Hand.kRight));
-        
-        SmartDashboard.putNumber("Controller Left Y", stick.getY(GenericHID.Hand.kLeft));
-        SmartDashboard.putNumber("Controller Right Y", stick.getY(GenericHID.Hand.kRight));
     }
     
     public void drive(float speed) {
@@ -54,15 +47,21 @@ public class ChassisSubsystem extends Subsystem {
         if (transmission.get().value == RobotMap.TRANSMISSION_SOLENOID_LOW) {
             transmission.set(Value.kReverse);
         }
-        else if (transmission.get().value == RobotMap.TRANSMISSION_SOLENOID_HIGH) {
+//        else if (transmission.get().value == RobotMap.TRANSMISSION_SOLENOID_HIGH) {
+//            transmission.set(Value.kForward);
+//        }
+        else {
             transmission.set(Value.kForward);
         }
     }
     
+    /*
+     * Stops outputting voltage to the drive motors.
+     */
     public void stop() {
         chassis.drive(0, 0);
     }
-
+    
     public void resetEncoders() {
         leftEncoder.reset();
         rightEncoder.reset();

@@ -11,6 +11,7 @@ public class ArmPickUpCommand extends CommandBase {
     
     public ArmPickUpCommand() {
         requires(arms);
+        System.out.println("Arms - IN: Start"); //<<<<<<<<< Debugger message
     }
 
     // Called just before this Command runs the first time
@@ -33,6 +34,7 @@ public class ArmPickUpCommand extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
         arms.stop();
+        System.out.println("Arms - IN: Stop"); //<<<<<<<<< Debugger message
     }
 
     // Called when another command which requires one or more of the same
